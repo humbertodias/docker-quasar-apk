@@ -1,9 +1,11 @@
 name: Deploy
 on:
-  workflow_dispatch:
-    inputs:
-      name:
-        description: "DockerHub"
+  # workflow_dispatch:
+  #   inputs:
+  #     name:
+  #       description: "DockerHub"
+  push:
+    branches: main
 
 jobs:
   build:
