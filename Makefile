@@ -1,3 +1,4 @@
+IMAGE_USER=hldtux
 IMAGE_NAME=quasar-android-builder
 
 .PHONY: run-it
@@ -8,14 +9,14 @@ create-keystore:
 build-push:
 	DOCKER_DEFAULT_PLATFORM=linux/amd64 \
     docker build . -t ${IMAGE_NAME} --no-cache && \
-	docker tag ${IMAGE_NAME} hldtux/${IMAGE_NAME} && \
-	docker push hldtux/${IMAGE_NAME}
+	docker tag ${IMAGE_NAME} ${IMAGE_USER}/${IMAGE_NAME} && \
+	docker push ${IMAGE_USER}/${IMAGE_NAME}
 
 run-it:
 	docker run -it \
-  	-v `pwd`:/home/quasar/workdir \
-  	-w /home/quasar/workdir \
-  	hldtux/${IMAGE_NAME} bash
+  	-v `pwd`:/tmp/workdir \
+  	-w /tmp/workdir \
+  	${IMAGE_USER}/${IMAGE_NAME} bash
 
 clean:
 	npm run clean && cd src-cordova && npm run clean
