@@ -5,6 +5,10 @@ on:
       name:
         description: "DockerHub"
 
+env:
+  USERNAME: ${{ secrets.DOCKERHUB_TOKEN }}
+  DOCKER_TOKEN: ${{ secrets.DOCKERHUB_USERNAME }}        
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -12,6 +16,6 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
       - name: Login
-        run: echo "${{ secrets.DOCKERHUB_TOKEN }}" | docker login -u {{ secrets.DOCKERHUB_USERNAME }} --password-stdin 
+        run: echo $DOCKER_TOKEN | docker login -u $USERNAME --password-stdin 
       - name: Push
         run: make build-push
