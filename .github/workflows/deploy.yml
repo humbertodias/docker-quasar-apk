@@ -1,0 +1,16 @@
+name: Deploy
+on:
+  workflow_dispatch:
+    inputs:
+      name:
+        description: "DockerHub"
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Login
+        run: docker login --username ${{ secrets.DOCKERHUB_USERNAME }} --password ${{ secrets.DOCKERHUB_TOKEN }}
+      - name: Push
+        run: make build-push
