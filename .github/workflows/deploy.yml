@@ -1,11 +1,11 @@
 name: Deploy
 on:
-  workflow_dispatch:
-    inputs:
-      name:
-        description: "DockerHub"
-  # push:
-  #   branches: main
+  # workflow_dispatch:
+  #   inputs:
+  #     name:
+  #       description: "DockerHub"
+  push:
+    branches: main
 
 jobs:
   deployment:
