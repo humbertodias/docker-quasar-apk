@@ -1,7 +1,7 @@
 [![Deploy](https://github.com/humbertodias/quasar-android-builder/actions/workflows/deploy.yml/badge.svg)](https://github.com/humbertodias/quasar-android-builder/actions/workflows/deploy.yml)
 
 # quasar-android-builder
-Docker container that can build apk from quasar project
+Docker container [quasar-android-builder](https://hub.docker.com/r/hldtux/quasar-android-builder) that can build apk from quasar project.
 
 ```shell
 QUASAR_PROJECT_WORKDIR=`pwd`
@@ -10,6 +10,3 @@ docker run -it \
   	-w /home/quasar/workdir \
   	hldtux/quasar-android-builder bash
 ```
-
-# Ref
-https://hub.docker.com/r/hldtux/quasar-android-builder
