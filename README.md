@@ -1,3 +1,5 @@
+[![Deploy](https://github.com/humbertodias/quasar-android-builder/actions/workflows/deploy.yml/badge.svg)](https://github.com/humbertodias/quasar-android-builder/actions/workflows/deploy.yml)
+
 # quasar-android-builder
 Docker container that can build apk from quasar project
 
