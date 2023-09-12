@@ -5,6 +5,10 @@ RUN apk add sudo git curl wget zip unzip build-base file jq bash
 # Installing cert package will allow resolving the error to https://registry.npmjs.org/
 RUN apk add ca-certificates
 
+# bash as default
+SHELL ["/bin/bash", "-c"]
+
+
 # cordova
 ARG NPM_VERSION=latest
 ARG CORDOVA_VERSION=latest
