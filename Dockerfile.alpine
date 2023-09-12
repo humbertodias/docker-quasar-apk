@@ -1,9 +1,9 @@
-FROM node:bookworm
+FROM node:alpine
 
 # Install Build Essentials
-RUN apt update && apt install -y sudo git curl wget zip unzip build-essential file apt-utils jq
+RUN apk add sudo git curl wget zip unzip build-base file jq
 # Installing cert package will allow resolving the error to https://registry.npmjs.org/
-RUN apt install -y ca-certificates
+RUN apk add ca-certificates
 
 # cordova
 ARG NPM_VERSION=latest
@@ -20,10 +20,8 @@ SHELL ["/bin/bash", "-c"]
 RUN curl -s "https://get.sdkman.io" | bash
 ENV HOME=/root
 ENV SDKMAN_HOME=$HOME/.sdkman
-# ENV JAVA_VERSION=17.0.8-amzn
-# ENV GRADLE_VERSION=7.6
-ENV JAVA_VERSION=8.0.382-zulu
-ENV GRADLE_VERSION=4.10.3
+ENV JAVA_VERSION=17.0.8-amzn
+ENV GRADLE_VERSION=7.6
 
 # java/gradle
 RUN source "$SDKMAN_HOME/bin/sdkman-init.sh" && sdk install java $JAVA_VERSION && sdk install gradle $GRADLE_VERSION
