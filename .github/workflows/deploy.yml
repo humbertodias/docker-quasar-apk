@@ -14,7 +14,7 @@ on:
 
 jobs:
   deployment:
-    name: Deploy - Android sdk${{ github.event.inputs.androidsdkversion }}
+    name: Android sdk ${{ github.event.inputs.androidsdkversion }} v${{ github.event.inputs.androidversion }} tools ${{ github.event.inputs.androidtoolsversion }}
     runs-on: ubuntu-latest
     environment: docker
     steps:
