@@ -11,6 +11,12 @@ on:
       androidtoolsversion:
         default: "27.0.3"
         description: "Android Tools Version"
+      javaversion:
+        default: "8.0.382-zulu"
+        description: "Java Version"
+      gradleversion:
+        default: "4.10.3"
+        description: "Gradle Version"
 
 jobs:
   deployment:
@@ -31,4 +37,8 @@ jobs:
           make build-push \
             ANDROID_SDK_VERSION=${{ github.event.inputs.androidsdkversion }} \
             ANDROID_VERSION=${{ github.event.inputs.androidversion }} \
-            ANDROID_BUILD_TOOLS_VERSION=${{ github.event.inputs.androidtoolsversion }}
+            ANDROID_BUILD_TOOLS_VERSION=${{ github.event.inputs.androidtoolsversion }} \
+            JAVA_VERSION=${{ github.event.inputs.javaversion }} \
+            GRADLE_VERSION=${{ github.event.inputs.gradleversion }}
+
+
