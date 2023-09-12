@@ -12,7 +12,8 @@ build:
 	docker build . -t ${IMAGE_NAME} --no-cache
 
 build-linux:
-	DOCKER_DEFAULT_PLATFORM=linux/amd64 $(MAKE) build
+	DOCKER_DEFAULT_PLATFORM=linux/amd64 \
+	$(MAKE) build
 
 tag:
 	docker tag ${IMAGE_NAME} ${IMAGE_USER}/${IMAGE_NAME}

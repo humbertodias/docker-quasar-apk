@@ -1,7 +1,7 @@
 FROM node:alpine
 
 # Install Build Essentials
-RUN apk add sudo git curl wget zip unzip build-base file jq bash
+RUN apk add sudo git curl wget zip unzip build-base file jq bash gcompat
 # Installing cert package will allow resolving the error to https://registry.npmjs.org/
 RUN apk add ca-certificates
 
